@@ -1,0 +1,29 @@
+<h1>Connections</h1>
+<%= if @connections.empty? then "There is no connections" end %>
+<br>
+<table>
+
+  <thead> 
+    <tr>
+      <td>id</td>
+      <td>customer_id</td>
+      <td>provider_name</td>
+      <td>status</td>
+      <td>accounts</td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @connections.each do |connection| %>
+      <tr>
+        <td>  <%= connection.id %> </td>
+        <td> <%= connection.customer_id %> </td>
+        <td> <%= connection.provider_name %></td>
+        <td> <%= connection.status %></td>
+        <td> <%= link_to "link", connection_accounts_path(connection.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
+<%= link_to "add connection", new_connection_path %>

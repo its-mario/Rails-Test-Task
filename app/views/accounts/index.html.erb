@@ -1,0 +1,26 @@
+<h1>Accounts</h1>
+
+<table>
+
+  <thead>
+    <tr>
+      <th>account id</th>
+      <th>Name</th>
+      <th>Nature</th>
+      <th>balance</th>
+      <th>currency</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @accounts.each do | account | %>
+    <tr>
+      <td><%= link_to account.id, connection_account_transactions_path(@connection_id, account.id) %></td>
+      <td><%= account.name %></td>
+      <td><%= account.nature %></td>
+      <td><%= account.balance %></td>
+      <td><%= account.currency_code %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
