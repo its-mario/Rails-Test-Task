@@ -1,10 +1,12 @@
 require 'connection_object'
+require 'saltedge'
 
 class ConnectionsController < ApplicationController
   def index
     customer_id = current_user.customer_id
     url = "https://www.saltedge.com/api/v5/connections?customer_id=#{customer_id}"
-    response = helpers.salt_request(:get, url)
+    api = Saltedge.new(APP_ID, SECRET, 'private.pem')
+    response = api.request(:get, url)
     @connections = response['data'].map { | hash | ConnectionObject.init(hash) }
   end
 
@@ -29,9 +31,8 @@ class ConnectionsController < ApplicationController
       }
     }
     url = 'https://www.saltedge.com/api/v5/connect_sessions/create'
-    response = helpers.salt_request(:post, url, param)
-    pp response
-    pp "Here"
+    api = Saltedge.new(APP_ID, SECRET, 'private.pem')
+    response = api.request(:post, url, param)
     redirect_to response['data']['connect_url']
   end
 

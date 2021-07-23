@@ -5,7 +5,8 @@ class TransactionsController < ApplicationController
     connection_id = params['connection_id']
     account_id = params['account_id']
     url = "https://www.saltedge.com/api/v5/transactions?connection_id=#{connection_id}&account_id=#{account_id}"
-    response = helpers.salt_request(:get, url)
+    api = Saltedge.new(APP_ID, SECRET, 'private.pem')
+    response = api.request(:get, url)
     @transactions = response['data'].map { |hash| Transaction.new(hash) }
   end
 
