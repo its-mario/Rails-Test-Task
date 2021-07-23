@@ -24,7 +24,7 @@ i didn't finish it completely but actual version cover the requirements
 
 - [x] to add signature verification 
 
-- [ ] to add some styles for html (make it look better)
+- [x] sto add some styles for html (make it look better)
 
 - [ ] to cover code with tests
 
