@@ -1,2 +1,9 @@
-<h1>Connections#show</h1>
-<p>Find me in app/views/connections/show.html.erb</p>
+<div class="container">
+  <%=  link_to " ⬅ back ", connections_path, class:"btn btn-primary" %> <br><br>
+<% @connection.each_pair do |key, value| %>
+  
+  <strong> <%= key.to_s %> </strong> <br>
+  <%= value %>
+  <br><br>
+<% end %>
+  </div>  

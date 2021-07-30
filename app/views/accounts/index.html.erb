@@ -9,17 +9,21 @@
       <th>Nature</th>
       <th>balance</th>
       <th>currency</th>
+      <th>transactions</th>
+      <th>details</th>
     </tr>
   </thead>
 
   <tbody>
     <% @accounts.each do | account | %>
     <tr>
-      <td><%= link_to account.id, connection_account_transactions_path(@connection_id, account.id) %></td>
+      <td><%= account.id %></td>
       <td><%= account.name %></td>
       <td><%= account.nature %></td>
       <td><%= account.balance %></td>
       <td><%= account.currency_code %></td>
+      <td><%= link_to 'list', connection_account_transactions_path(@connection_id, account.id) %></td>
+      <td><%= link_to "more", connection_account_path(@connection_id,account.id)%> </td>
     </tr>
     <% end %>
   </tbody>

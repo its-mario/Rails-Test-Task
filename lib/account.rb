@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class Account
   attr_reader :id, :name, :nature, :balance, :currency_code
 
-  def initialize hash
+  def initialize(hash)
     @id = hash['id']
     @name = hash['name']
     @nature = hash['nature']

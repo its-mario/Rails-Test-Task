@@ -9,6 +9,7 @@
       <td>category</td>
       <td>description</td>
       <td>amount</td>
+      <td>more </td>
     </tr>
   </thead>
   
@@ -20,6 +21,8 @@
         <td> <%= transaction.category %> </td>
         <td> <%= transaction.description %> </td>
         <td> <%= transaction.amount %> </td>
+        <td> <%= link_to "more", connection_account_transaction_path(@connection_id, @account_id, transaction.id) %>
+        </td>
       </tr>
     <%  end %>
   </tbody>

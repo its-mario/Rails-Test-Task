@@ -1,5 +1,6 @@
-class SaltEdgeController < ApplicationController
+# frozen_string_literal: true
 
+class SaltEdgeController < ApplicationController
   def create_customer
     identifier = current_user.email
     url = 'https://www.saltedge.com/api/v5/customers'
@@ -8,8 +9,7 @@ class SaltEdgeController < ApplicationController
     response = api.request(:post, url, param)
     current_user.update(customer_id: response['data']['id'])
     pp current_user.customer_id
-    pp "HERE"
+    pp 'HERE'
     redirect_to root_path
   end
-
 end

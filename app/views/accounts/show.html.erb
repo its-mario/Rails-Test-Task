@@ -1,2 +1,9 @@
-<h1>Accounts#show</h1>
-<p>Find me in app/views/accounts/show.html.erb</p>
+<div class="container">
+  <%=  link_to " ⬅ back ", connection_accounts_path, class:"btn btn-primary" %> <br><br>
+<% @account.each_pair do |key, value| %>
+  
+  <strong> <%= key.to_s %> </strong> <br>
+  <%= value %>
+  <br><br>
+<% end %>
+  </div>  
